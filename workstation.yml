@@ -1,0 +1,14 @@
+---
+- name: Configure workstation
+  hosts: localhost
+  connection: local
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Ensure needed package are installed
+      ansible.builtin.apt:
+        name:
+          - git
+          - curl
+          - vim
+        state: present
