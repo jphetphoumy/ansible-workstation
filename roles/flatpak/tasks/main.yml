@@ -7,9 +7,11 @@
     method: "user"
     state: "{{ flatpak_flathub_repo_enabled }}"
 
-- name: "Install packages {{ item }}"
+- name: "Install flatpak packages"
   community.general.flatpak:
     name: "{{ item.name }}"
     method: "user"
     state: "{{ item.state }}"
   loop: "{{ flatpak_packages }}"
+  loop_control:
+    label: "{{ item.name }}"
