@@ -6,17 +6,19 @@
   gather_facts: false
   vars:
     ansible_become_exe: /usr/bin/sudo.ws # Workaround Ubuntu
-  roles:
-    - gnomerice
-    - flatpak
-  tasks:
+  pre_tasks:
     - name: Ensure needed package are installed
       ansible.builtin.apt:
         name:
           - git
           - curl
           - vim
+          - flatpak
         state: present
+  roles:
+    - gnomerice
+    - flatpak
+  tasks:
     - name: Refresh desktop entries
       ansible.builtin.command:
         cmd: update-desktop-database ~/.local/share/flatpak/exports/share/applications 
