@@ -8,3 +8,5 @@ flatpak_packages:
     state: present
   - name: com.logseq.Logseq
     state: present
+  - name: org.mozilla.thunderbird
+    state: present
