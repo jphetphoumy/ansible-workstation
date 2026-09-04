@@ -8,3 +8,4 @@ system_packages:
   - remmina
   - remmina-plugin-rdp
   - openvpn
+  - direnv
