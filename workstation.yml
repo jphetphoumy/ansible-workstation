@@ -17,3 +17,7 @@
           - curl
           - vim
         state: present
+    - name: Refresh desktop entries
+      ansible.builtin.command:
+        cmd: update-desktop-database ~/.local/share/flatpak/exports/share/applications 
+      
