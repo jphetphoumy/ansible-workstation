@@ -6,3 +6,5 @@ flatpak_packages:
     state: present
   - name: com.obsproject.Studio 
     state: present
+  - name: com.logseq.logseq
+    state: present
