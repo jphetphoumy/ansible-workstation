@@ -1,0 +1,6 @@
+---
+flatpak_packages:
+  - name: org.keepassxc.KeePassXC
+    state: present
+  - name: com.github.IsmaelMartinez.teams_for_linux
+    state: present

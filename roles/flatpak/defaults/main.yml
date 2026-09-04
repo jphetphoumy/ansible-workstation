@@ -1,0 +1,3 @@
+---
+# defaults file for roles/flatpak
+flatpak_flathub_repo_enabled: true

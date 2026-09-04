@@ -1,0 +1,13 @@
+---
+# tasks file for roles/flatpak
+- name: "Add the flathub flatpak repository remote to the user installation"
+  community.general.flatpak_remote:
+    name: "flathub"
+    flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+    method: "user"
+    state: "{{ flatpak_flathub_repo_enabled | default('present') }}"
+- name: "Install packages {{ item }}"
+  community.general.flatpak:
+    name: "{{ item.name }}"
+    method: "user"
+    state: "{{ item.state }}"

@@ -8,6 +8,7 @@
     ansible_become_exe: /usr/bin/sudo.ws # Workaround Ubuntu
   roles:
     - gnomerice
+    - flatpak
   tasks:
     - name: Ensure needed package are installed
       ansible.builtin.apt:
