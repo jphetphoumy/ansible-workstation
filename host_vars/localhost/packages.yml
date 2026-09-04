@@ -7,3 +7,4 @@ system_packages:
   - flatpak
   - remmina
   - remmina-plugin-rdp
+  - openvpn
