@@ -1,4 +1,4 @@
 ---
 # defaults file for roles/flatpak
-flatpak_flathub_repo_enabled: present
+flatpak_flathub_repo_enabled: "present"
 flatpak_packages: {}

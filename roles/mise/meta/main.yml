@@ -1,0 +1,10 @@
+galaxy_info:
+  author: "Jérémy Phetphoumy"
+  description: "Manage mise"
+
+  license: "MIT"
+
+  min_ansible_version: "2.18"
+
+  galaxy_tags:
+    - "mise"

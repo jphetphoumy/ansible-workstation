@@ -15,6 +15,7 @@
   roles:
     - gnomerice
     - flatpak
+    - mise
   tasks:
     - name: Refresh desktop entries
       ansible.builtin.command:

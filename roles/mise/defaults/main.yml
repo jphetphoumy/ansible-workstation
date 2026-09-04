@@ -1,0 +1,4 @@
+---
+# defaults file for roles/mise
+mise_installer_path: "{{ ansible_user_dir }}/.cache/mise-install.sh"
+mise_install_path: "{{ ansible_user_dir }}/.local/bin/mise"

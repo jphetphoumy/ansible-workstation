@@ -1,0 +1,48 @@
+---
+# tasks file for roles/mise
+- name: "Ensure mise directories exist"
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: "directory"
+    mode: "{{ item.mode }}"
+  loop:
+    - path: "{{ ansible_user_dir }}/.local/bin"
+      mode: "0755"
+    - path: "{{ ansible_user_dir }}/.cache"
+      mode: "0700"
+  tags:
+    - "mise"
+
+- name: "Download mise installer"
+  ansible.builtin.get_url:
+    url: "https://mise.run"
+    dest: "{{ mise_installer_path }}"
+    mode: "0700"
+  tags:
+    - "mise"
+
+- name: "Install mise"
+  ansible.builtin.command:
+    cmd: "/bin/sh {{ mise_installer_path }}"
+    creates: "{{ mise_install_path }}"
+  environment:
+    HOME: "{{ ansible_user_dir }}"
+    MISE_INSTALL_PATH: "{{ mise_install_path }}"
+  tags:
+    - "mise"
+
+- name: "Verify mise installation"
+  ansible.builtin.command:
+    cmd: "{{ mise_install_path }} --version"
+  environment:
+    HOME: "{{ ansible_user_dir }}"
+  register: "mise_version"
+  changed_when: false
+  tags:
+    - "mise"
+
+- name: "Display mise version"
+  ansible.builtin.debug:
+    msg: "{{ mise_version.stdout }}"
+  tags:
+    - "mise"

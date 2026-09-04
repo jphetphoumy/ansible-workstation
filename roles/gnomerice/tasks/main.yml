@@ -1,6 +1,6 @@
 ---
 # tasks file for roles/gnome-rice
-- name: Manage gnome overrides
+- name: "Manage gnome overrides"
   community.general.dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
