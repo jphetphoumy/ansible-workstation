@@ -1,0 +1,7 @@
+---
+system_packages:
+  - git
+  - vim
+  - curl
+  - kitty # Terminal
+  - flatpak

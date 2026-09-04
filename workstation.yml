@@ -2,18 +2,15 @@
 - name: Configure workstation
   hosts: localhost
   connection: local
-  become: true
+  become: false
   gather_facts: false
   vars:
     ansible_become_exe: /usr/bin/sudo.ws # Workaround Ubuntu
   pre_tasks:
     - name: Ensure needed package are installed
+      become: true
       ansible.builtin.apt:
-        name:
-          - git
-          - curl
-          - vim
-          - flatpak
+        name: "{{ system_packages }}"
         state: present
   roles:
     - gnomerice
