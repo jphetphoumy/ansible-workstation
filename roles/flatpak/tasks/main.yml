@@ -5,7 +5,7 @@
     name: "flathub"
     flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
     method: "user"
-    state: "{{ flatpak_flathub_repo_enabled | default('present') }}"
+    state: "{{ flatpak_flathub_repo_enabled }}"
 - name: "Install packages {{ item }}"
   community.general.flatpak:
     name: "{{ item.name }}"
