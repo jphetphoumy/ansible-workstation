@@ -4,3 +4,5 @@ flatpak_packages:
     state: present
   - name: com.github.IsmaelMartinez.teams_for_linux
     state: present
+  - name: com.obsproject.Studio 
+    state: present
