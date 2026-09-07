@@ -1,0 +1,4 @@
+---
+mise_packages:
+  - name: chezmoi
+    version: "2.72.1"

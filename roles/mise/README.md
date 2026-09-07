@@ -1,38 +1,61 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Install and configure [mise](https://mise.jdx.dev/) for the current user, including globally configured mise packages. The role uses a custom `mise_packages` Ansible module for idempotent package management.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+The role expects a Linux host with a user home directory. It downloads the official mise installer from `https://mise.run`.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+`mise_packages` is a list of packages to install globally. Each item must contain a `name` and a `version`:
+
+```yaml
+mise_packages:
+  - name: chezmoi
+    version: "2.72.1"
+```
+
+The role invokes the equivalent of:
+
+```text
+mise use --global chezmoi@2.72.1
+```
+
+The following variables control the mise installation paths and normally do not need to be changed:
+
+- `mise_installer_path`: defaults to `{{ ansible_user_dir }}/.cache/mise-install.sh`.
+- `mise_install_path`: defaults to `{{ ansible_user_dir }}/.local/bin/mise`.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- name: Configure workstation
+  hosts: localhost
+  connection: local
+  roles:
+    - role: mise
+      vars:
+        mise_packages:
+          - name: chezmoi
+            version: "2.72.1"
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Jérémy Phetphoumy

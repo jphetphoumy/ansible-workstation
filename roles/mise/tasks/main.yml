@@ -46,3 +46,13 @@
     msg: "{{ mise_version.stdout }}"
   tags:
     - "mise"
+
+- name: "Manage globally configured mise packages"
+  mise_packages:
+    packages: "{{ mise_packages }}"
+    mise_path: "{{ mise_install_path }}"
+  environment:
+    HOME: "{{ ansible_user_dir }}"
+  tags:
+    - "mise"
+    - "misepackages"
