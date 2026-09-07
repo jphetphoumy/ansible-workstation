@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: "Jérémy Phetphoumy"
+  description: "Install Docker Engine on Ubuntu"
+  company: "Ecritel France"
+  license: "Internal Use Only"
+  min_ansible_version: "2.18"
+  platforms:
+    - name: "Ubuntu"
+      versions:
+        - "jammy"
+        - "noble"
+  galaxy_tags:
+    - "docker"
+
+dependencies: []
