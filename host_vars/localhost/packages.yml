@@ -9,3 +9,5 @@ system_packages:
   - remmina-plugin-rdp
   - openvpn
   - direnv
+  - starship
+  - podman
