@@ -5,5 +5,6 @@ gnome_settings_overrides:
   /org/gnome/shell/extensions/dash-to-dock/show-mounts: "false"
   /org/gnome/shell/extensions/dash-to-dock/show-tash: "false"
   /org/gnome/shell/extensions/dash-to-dock/dock-fixed: "false"
+  /org/gnome/shell/extensions/ding/show-home: "false"
   /org/gnome/desktop/input-sources/sources: "[('xkb', 'fr+azerty')]"
   /org/gnome/shell/favorite-apps: "['firefox_firefox.desktop', 'org.gnome.Nautilus.desktop', 'kitty.desktop', 'org.keepassxc.KeePassXC.desktop', 'com.github.IsmaelMartinez.teams_for_linux.desktop', 'org.logseq.Logseq.desktop', 'org.gnome.Settings.desktop']"
