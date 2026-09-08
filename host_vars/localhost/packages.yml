@@ -11,4 +11,6 @@ system_packages:
   - direnv
   - starship
   - podman
+  - gnome-shell
   - gnome-shell-extension-manager
+  - gnome-shell-extensions
